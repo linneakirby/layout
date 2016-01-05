@@ -28,7 +28,7 @@ def printPages(count, end, total):
         print(" _______________ \t _______________ ")
         print("|       |       |\t|       |       |")
         print("|       |       |\t|       |       |")
-        print("{:^1}{:^7}{:^1}{:^7}{:^1}{:^7}{:^1}{:^7}{:^1}".format("|",count,"|",total,"|\t|",count+1,"|",total-1,"|"))
+        print("|{:^7}|{:^7}|\t|{:^7}|{:^7}|".format(count,total,count+1,total-1))
         print("|       |       |\t|       |       |")
         print("|_______|_______|\t|_______|_______|")
         count+=2
