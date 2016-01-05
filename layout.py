@@ -52,7 +52,7 @@ def printSignatures(sheets, sps):
     for s in range(1, sigs+1):
         print("\t\tSignature", s, ":")
         printPages(start, sps+1, soFar)
-        start=sigs*s*4+1
+        start=start+sps*4
         soFar+=pps
         
 
@@ -67,13 +67,14 @@ def printOrder(pages, sps):
 # Finds a reasonable number of sheets per signature
 def getSps(pages):
     sheets = getSheets(pages)
-    
-    lowest = 10
+    lowest = 100
+    temp = 100
     for i in range (3, 7):
         if sheets%i == 0:
             return i
-        elif sheets%i < lowest:
+        elif sheets%i < temp:
             lowest = i
+            temp = sheets%i
     return lowest
 
 def main():
