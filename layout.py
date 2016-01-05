@@ -6,10 +6,12 @@
 # (and, optionally, the number of sheets per signature)
 # and outputs the the layout of all signatures
 
+import string
+
 # rounds the number of pages to the nearest multiple of 4
 def roundPages(pages):
     extra = pages%4
-    if extra != 0:
+    if extra:
         extra = 4-extra
     return pages+extra
 
@@ -26,7 +28,7 @@ def printPages(count, end, total):
         print(" _______________ \t _______________ ")
         print("|       |       |\t|       |       |")
         print("|       |       |\t|       |       |")
-        print("|  ",count,"  |  ", total, "  |\t|  ",count+1,"  |  ", total-1, "  |")
+        print("{:^1}{:^7}{:^1}{:^7}{:^1}{:^7}{:^1}{:^7}{:^1}".format("|",count,"|",total,"|\t|",count+1,"|",total-1,"|"))
         print("|       |       |\t|       |       |")
         print("|_______|_______|\t|_______|_______|")
         count+=2
